@@ -38,20 +38,20 @@ plugins.push(
     new CopyPlugin({
         patterns: [
             {
-                from: baseFrom + path.sep + "/dashboards",
-                to: baseTo + path.sep + "/dashboards",
+                from: baseFrom + path.sep + "dashboards",
+                to: baseTo + path.sep + "dashboards",
                 filter: filter,
                 transformPath: transformPath
             },
             {
-                from: baseFrom + path.sep + "/widgets",
-                to: baseTo + path.sep + "/widgets",
+                from: baseFrom + path.sep + "widgets",
+                to: baseTo + path.sep + "widgets",
                 filter: filter,
                 transformPath: transformPath
             },
             {
-                from: baseFrom + path.sep + "/mixins",
-                to: baseTo + path.sep + "/mixins",
+                from: baseFrom + path.sep + "mixins",
+                to: baseTo + path.sep + "mixins",
                 filter: filter,
                 transformPath: transformPath
             }
