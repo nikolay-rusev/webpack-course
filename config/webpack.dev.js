@@ -2,6 +2,26 @@ const fs = require("fs");
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 
+function filter(resourcePath) {
+    let pathAsArray = resourcePath.split(path.sep);
+    let fileName = pathAsArray[pathAsArray.length - 1];
+    // filter out data
+    return fileName.match(/.json$/gm) && !fileName.match(/data/gm);
+}
+
+async function transformPath(targetPath, resourcePath) {
+    let pathAsArray = resourcePath.split(path.sep);
+    let fileName = pathAsArray[pathAsArray.length - 1];
+    // mixin without id in json workaround
+    let tempId = fileName.split(".");
+    let data = await fs.promises.readFile(resourcePath);
+    let stringData = data.toString();
+    let json = JSON.parse(stringData);
+    let id = json.id || tempId[0];
+    let targetPathArray = targetPath.split(path.sep);
+    return targetPathArray[0] + path.sep + targetPathArray[1] + path.sep + id + ".json";
+}
+
 module.exports = {
     entry: {
         main: "./src/main.js"
@@ -16,13 +36,22 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 {
-                    from: "mocks",
-                    to: "config",
-                    filter: async (resourcePath) => {
-                        let pathAsArray = resourcePath.split(path.sep);
-                        let fileName = pathAsArray[pathAsArray.length - 1];
-                        return fileName.match(/.json$/gm) && !fileName.match(/data/gm);
-                    }
+                    from: "mocks/dashboards",
+                    to: "config/dashboards",
+                    filter: filter,
+                    transformPath: transformPath
+                },
+                {
+                    from: "mocks/widgets",
+                    to: "config/widgets",
+                    filter: filter,
+                    transformPath: transformPath
+                },
+                {
+                    from: "mocks/mixins",
+                    to: "config/mixins",
+                    filter: filter,
+                    transformPath: transformPath
                 }
             ]
         })
