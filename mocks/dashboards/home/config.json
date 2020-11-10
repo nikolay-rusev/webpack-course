@@ -1,0 +1,18 @@
+{
+    "id": "home",
+    "template": "HomePageTemplate",
+    "widgets": [
+        {
+            "id": "header-widget",
+            "region": "header"
+        },
+        {
+            "id": "home-widget",
+            "region": "main"
+        },
+        {
+            "id": "footer-widget",
+            "region": "footer"
+        }
+    ]
+}

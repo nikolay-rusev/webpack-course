@@ -1,0 +1,197 @@
+{
+    "id": "footer-widget",
+    "cached": true,
+    "static": true,
+    "components": [
+        {
+            "type": "grid",
+            "bindTo": "footer-widget",
+            "children": [
+                {
+                    "type": "container",
+                    "bindTo": "{parent}",
+                    "region": {
+                        "row": 1,
+                        "col": 1,
+                        "sizeLarge": 2
+                    },
+                    "children": [
+                        {
+                            "type": "logo",
+                            "bindTo": "{parent}.logo",
+                            "extraClasses": "tq-logo"
+                        },
+                        {
+                            "type": "title",
+                            "bindTo": "{parent}.title1",
+                            "size": 5
+                        },
+                        {
+                            "type": "button",
+                            "bindTo": "{parent}.btn1",
+                            "extraClasses": "reg-secondary-ghost",
+                            "size": "l"
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "bindTo": "{parent}",
+                    "region": {
+                        "row": 1,
+                        "col": 2,
+                        "sizeLarge": 2
+                    },
+                    "children": [
+                        {
+                            "type": "title",
+                            "bindTo": "{parent}.title2",
+                            "size": 6,
+                            "extraClasses": "reg-title"
+                        },
+                        {
+                            "type": "menu",
+                            "bindTo": "{parent}.menu2",
+                            "vertical": true
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "bindTo": "{parent}",
+                    "region": {
+                        "row": 1,
+                        "col": 3,
+                        "sizeLarge": 2
+                    },
+                    "children": [
+                        {
+                            "type": "title",
+                            "bindTo": "{parent}.title3",
+                            "size": 6,
+                            "extraClasses": "reg-title"
+                        },
+                        {
+                            "type": "menu",
+                            "bindTo": "{parent}.menu3",
+                            "vertical": true
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "bindTo": "{parent}",
+                    "region": {
+                        "row": 1,
+                        "col": 4,
+                        "sizeLarge": 2
+                    },
+                    "children": [
+                        {
+                            "type": "title",
+                            "bindTo": "{parent}.title4",
+                            "size": 6,
+                            "extraClasses": "reg-title"
+                        },
+                        {
+                            "type": "menu",
+                            "bindTo": "{parent}.menu4",
+                            "vertical": true
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "bindTo": "{parent}",
+                    "region": {
+                        "row": 1,
+                        "col": 5,
+                        "sizeLarge": 2
+                    },
+                    "children": [
+                        {
+                            "type": "title",
+                            "bindTo": "{parent}.title5",
+                            "size": 6,
+                            "extraClasses": "reg-title"
+                        },
+                        {
+                            "type": "menu",
+                            "bindTo": "{parent}.menu5",
+                            "vertical": true
+                        }
+                    ]
+                },
+                {
+                    "type": "container",
+                    "bindTo": "{parent}",
+                    "region": {
+                        "row": 1,
+                        "col": 6,
+                        "sizeLarge": 2
+                    },
+                    "children": [
+                        {
+                            "type": "title",
+                            "bindTo": "{parent}.title6",
+                            "size": 6,
+                            "extraClasses": "reg-title"
+                        },
+                        {
+                            "type": "menu",
+                            "bindTo": "{parent}.menu6",
+                            "vertical": true
+                        },
+                        {
+                            "type": "container",
+                            "bindTo": "{parent}.socialBtns",
+                            "extraClasses": "reg-social-btns-container",
+                            "children": [
+                                {
+                                    "type": "button",
+                                    "bindTo": "{parent}.fbBtn",
+                                    "icon": "tq-icon-facebook",
+                                    "extraClasses": "reg-social-btn"
+                                },
+                                {
+                                    "type": "button",
+                                    "bindTo": "{parent}.twitterBtn",
+                                    "icon": "tq-icon-twitter",
+                                    "extraClasses": "reg-social-btn"
+                                },
+                                {
+                                    "type": "button",
+                                    "bindTo": "{parent}.liBtn",
+                                    "icon": "tq-icon-linedin-2",
+                                    "extraClasses": "reg-social-btn"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "splitBox",
+                    "asideAlign": "right",
+                    "bindTo": "{parent}",
+                    "region": {
+                        "row": 2,
+                        "col": 1,
+                        "sizeLarge": 12
+                    },
+                    "children": [
+                        {
+                            "type": "paragraph",
+                            "bindTo": "{parent}.copyright",
+                            "region": "primary"
+                        },
+                        {
+                            "type": "menu",
+                            "bindTo": "{parent}.legal",
+                            "region": "aside"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

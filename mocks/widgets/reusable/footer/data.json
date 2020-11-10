@@ -1,0 +1,222 @@
+{
+    "class": ["footer-widget"],
+    "entities": [
+        {
+            "class": ["logo"],
+            "properties": {
+                "image": ""
+            }
+        },
+        {
+            "class": ["title1"],
+            "properties": {
+                "label": "Vous n’avez pas encore trouvé réponse à vos questions?"
+            }
+        },
+        {
+            "class": ["btn1"],
+            "properties": {
+                "label": "FAQS"
+            }
+        },
+        {
+            "class": ["title2"],
+            "properties": {
+                "label": "Regenlife Centers"
+            }
+        },
+        {
+            "class": ["menu2"],
+            "properties": {},
+            "entities": [
+                {
+                    "properties": {
+                        "label": "Nos centres"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Galerie"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Techniques complementaires"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Nous rejoindr"
+                    }
+                }
+            ]
+        },
+
+        {
+            "class": ["title3"],
+            "properties": {
+                "label": "NOTRE TECHNOLOGIE"
+            }
+        },
+        {
+            "class": ["menu3"],
+            "properties": {},
+            "entities": [
+                {
+                    "properties": {
+                        "label": "Notre technologie"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "La Photo Biomodulation"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "REGEnLIFE R&D"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Comité scientifique"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Labels"
+                    }
+                }
+            ]
+        },
+
+        {
+            "class": ["title4"],
+            "properties": {
+                "label": "VOS BESOINS"
+            }
+        },
+        {
+            "class": ["menu4"],
+            "properties": {},
+            "entities": [
+                {
+                    "properties": {
+                        "label": "Soutien santé"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Bien-être"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Bien vieillir"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Sport & Performance"
+                    }
+                }
+            ]
+        },
+
+        {
+            "class": ["title5"],
+            "properties": {
+                "label": "ACTUALITES"
+            }
+        },
+        {
+            "class": ["menu5"],
+            "properties": {},
+            "entities": [
+                {
+                    "properties": {
+                        "label": "Actualités"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Témoignages"
+                    }
+                }
+            ]
+        },
+
+        {
+            "class": ["title6"],
+            "properties": {
+                "label": "Contacts"
+            }
+        },
+        {
+            "class": ["menu6"],
+            "properties": {},
+            "entities": [
+                {
+                    "properties": {
+                        "label": "0032 566 335 773"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "contact@regenlife.fr"
+                    }
+                }
+            ]
+        },
+        {
+            "class": ["socialBtns"],
+            "entities": [
+                {
+                    "class": ["fbBtn"]
+                },
+                {
+                    "class": ["twitterBtn"]
+                },
+                {
+                    "class": ["liBtn"]
+                }
+            ]
+        },
+        {
+            "class": ["copyright"],
+            "properties": {
+                "text": "©2020 Regenlife.fr"
+            }
+        },
+        {
+            "class": ["legal"],
+            "properties": {},
+            "entities": [
+                {
+                    "properties": {
+                        "label": "Terms & Policies",
+                        "extraClasses": "reg-p-small-italic"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Privacy policy",
+                        "extraClasses": "reg-p-small-italic"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Cookie policy",
+                        "extraClasses": "reg-p-small-italic"
+                    }
+                },
+                {
+                    "properties": {
+                        "label": "Legal notice",
+                        "extraClasses": "reg-p-small-italic"
+                    }
+                }
+            ]
+        }
+    ]
+}
