@@ -1,6 +1,10 @@
 const fs = require("fs");
 const path = require("path");
+
 const CopyPlugin = require("copy-webpack-plugin");
+let plugins = [];
+const baseFrom = "mocks";
+const baseTo = "api";
 
 function filter(resourcePath) {
     let pathAsArray = resourcePath.split(path.sep);
@@ -19,8 +23,41 @@ async function transformPath(targetPath, resourcePath) {
     let json = JSON.parse(stringData);
     let id = json.id || tempId[0];
     let targetPathArray = targetPath.split(path.sep);
-    return targetPathArray[0] + path.sep + targetPathArray[1] + path.sep + id + ".json";
+    return (
+        targetPathArray[0] +
+        path.sep +
+        targetPathArray[1] +
+        path.sep +
+        id +
+        path.sep +
+        "configuration"
+    );
 }
+
+plugins.push(
+    new CopyPlugin({
+        patterns: [
+            {
+                from: baseFrom + path.sep + "/dashboards",
+                to: baseTo + path.sep + "/dashboards",
+                filter: filter,
+                transformPath: transformPath
+            },
+            {
+                from: baseFrom + path.sep + "/widgets",
+                to: baseTo + path.sep + "/widgets",
+                filter: filter,
+                transformPath: transformPath
+            },
+            {
+                from: baseFrom + path.sep + "/mixins",
+                to: baseTo + path.sep + "/mixins",
+                filter: filter,
+                transformPath: transformPath
+            }
+        ]
+    })
+);
 
 module.exports = {
     entry: {
@@ -32,30 +69,7 @@ module.exports = {
         path: path.resolve(__dirname, "../dist"),
         publicPath: "/"
     },
-    plugins: [
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: "mocks/dashboards",
-                    to: "config/dashboards",
-                    filter: filter,
-                    transformPath: transformPath
-                },
-                {
-                    from: "mocks/widgets",
-                    to: "config/widgets",
-                    filter: filter,
-                    transformPath: transformPath
-                },
-                {
-                    from: "mocks/mixins",
-                    to: "config/mixins",
-                    filter: filter,
-                    transformPath: transformPath
-                }
-            ]
-        })
-    ],
+    plugins,
     devServer: {
         contentBase: "dist",
         overlay: true
