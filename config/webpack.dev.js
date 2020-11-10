@@ -16,7 +16,7 @@ function filter(resourcePath) {
 async function transformPath(targetPath, resourcePath) {
     let pathAsArray = resourcePath.split(path.sep);
     let fileName = pathAsArray[pathAsArray.length - 1];
-    // mixin without id in json workaround
+    // mixin without id in json workaround (use name)
     let tempId = fileName.split(".");
     let data = await fs.promises.readFile(resourcePath);
     let stringData = data.toString();
