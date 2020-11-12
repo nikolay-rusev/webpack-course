@@ -1,19 +1,19 @@
 const fs = require("fs");
 const path = require("path");
-
 const CopyPlugin = require("copy-webpack-plugin");
-let plugins = [];
-const baseFrom = "mocks";
-const baseTo = "api";
 
-function filter(resourcePath) {
+let plugins = [];
+const copyPluginFrom = "mocks";
+const copyPluginTo = "configurations";
+
+function copyPluginFilter(resourcePath) {
     let pathAsArray = resourcePath.split(path.sep);
     let fileName = pathAsArray[pathAsArray.length - 1];
     // filter out data
     return fileName.match(/.json$/gm) && !fileName.match(/data/gm);
 }
 
-async function transformPath(targetPath, resourcePath) {
+async function copyPluginTransformPath(targetPath, resourcePath) {
     let pathAsArray = resourcePath.split(path.sep);
     let fileName = pathAsArray[pathAsArray.length - 1];
     // mixin without id in json workaround (use name)
@@ -23,37 +23,29 @@ async function transformPath(targetPath, resourcePath) {
     let json = JSON.parse(stringData);
     let id = json.id || tempId[0];
     let targetPathArray = targetPath.split(path.sep);
-    return (
-        targetPathArray[0] +
-        path.sep +
-        targetPathArray[1] +
-        path.sep +
-        id +
-        path.sep +
-        "configuration"
-    );
+    return targetPathArray[0] + path.sep + targetPathArray[1] + path.sep + id;
 }
 
 plugins.push(
     new CopyPlugin({
         patterns: [
             {
-                from: baseFrom + path.sep + "dashboards",
-                to: baseTo + path.sep + "dashboards",
-                filter: filter,
-                transformPath: transformPath
+                from: copyPluginFrom + path.sep + "dashboards",
+                to: copyPluginTo + path.sep + "dashboards",
+                filter: copyPluginFilter,
+                transformPath: copyPluginTransformPath
             },
             {
-                from: baseFrom + path.sep + "widgets",
-                to: baseTo + path.sep + "widgets",
-                filter: filter,
-                transformPath: transformPath
+                from: copyPluginFrom + path.sep + "widgets",
+                to: copyPluginTo + path.sep + "widgets",
+                filter: copyPluginFilter,
+                transformPath: copyPluginTransformPath
             },
             {
-                from: baseFrom + path.sep + "mixins",
-                to: baseTo + path.sep + "mixins",
-                filter: filter,
-                transformPath: transformPath
+                from: copyPluginFrom + path.sep + "mixins",
+                to: copyPluginTo + path.sep + "mixins",
+                filter: copyPluginFilter,
+                transformPath: copyPluginTransformPath
             }
         ]
     })
