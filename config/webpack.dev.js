@@ -1,9 +1,10 @@
 const path = require("path");
 const webpack = require("webpack");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: {
-        main: ["./src/main.js"]
+        main: ["./src/main.js", "webpack-hot-middleware/client?reload=true"]
     },
     mode: "development",
     output: {
@@ -11,8 +12,7 @@ module.exports = {
         path: path.resolve(__dirname, "../dist"),
         publicPath: "/"
     },
-    stats: "normal",
-    plugins: [new webpack.HotModuleReplacementPlugin()],
+    stats: { colors: true },
     module: {
         rules: [
             {
@@ -27,21 +27,8 @@ module.exports = {
             {
                 test: /\.html$/,
                 use: [
-                    { loader: "file-loader", options: { name: "[name].html" } },
-                    { loader: "extract-loader" },
                     {
-                        loader: "html-loader",
-                        options: {
-                            attributes: {
-                                list: [
-                                    {
-                                        tag: "img",
-                                        attribute: "src",
-                                        type: "src"
-                                    }
-                                ]
-                            }
-                        }
+                        loader: "html-loader"
                     }
                 ]
             },
@@ -57,5 +44,11 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new HTMLWebpackPlugin({
+            template: "./src/index.html"
+        })
+    ]
 };
