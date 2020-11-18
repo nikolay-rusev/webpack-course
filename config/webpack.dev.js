@@ -12,7 +12,8 @@ module.exports = {
         path: path.resolve(__dirname, "../dist"),
         publicPath: "/"
     },
-    stats: { colors: true },
+    stats: "detailed",
+    devtool: "source-map",
     module: {
         rules: [
             {
