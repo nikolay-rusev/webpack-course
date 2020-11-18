@@ -1,5 +1,4 @@
 {
-    "ignore": ["/\/core-js/"],
     "sourceType": "unambiguous",
     "presets": [
         [

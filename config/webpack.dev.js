@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
     entry: {
@@ -10,10 +11,8 @@ module.exports = {
         path: path.resolve(__dirname, "../dist"),
         publicPath: "/"
     },
-    devServer: {
-        contentBase: "dist",
-        overlay: true
-    },
+    stats: "normal",
+    plugins: [new webpack.HotModuleReplacementPlugin()],
     module: {
         rules: [
             {
