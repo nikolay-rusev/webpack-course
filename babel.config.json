@@ -1,5 +1,5 @@
 {
-    "ignore": ["/\/core-js/"],
+    "ignore": ["//core-js/"],
     "sourceType": "unambiguous",
     "presets": [
         [
@@ -13,7 +13,8 @@
                 },
                 "debug": true
             }
-        ]
+        ],
+        "@babel/preset-react"
     ],
     "plugins": ["@babel/transform-runtime"]
 }
